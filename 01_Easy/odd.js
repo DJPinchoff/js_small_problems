@@ -10,11 +10,11 @@ function logOddNumbers() {
 }
 
 function logUserOddNumbers() {
-  var start = Number(prompt("Enter a starting number:"));
-  var end = Number(prompt("Enter an ending number:"));
+  var start = Number(prompt('Enter a starting number:'));
+  var end = Number(prompt('Enter an ending number:'));
   var i;
 
-  for (i = start; i <= end; i++) {
+  for (i = start; i <= end; i + 1) {
     if (i % 2 !== 0) {
       console.log(i);
     }
