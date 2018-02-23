@@ -5,10 +5,8 @@ Examples:
 */
 
 function isPalindromicNumber(num) {
-  var originalNum;
-  var reversedNum;
-
-  
+  console.log(num.toString(10).split(''));
+  return true;
 }
 
 console.log(isPalindromicNumber(34543));        // true
