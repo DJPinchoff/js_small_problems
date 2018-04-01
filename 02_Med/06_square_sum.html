@@ -1,0 +1,41 @@
+<html>
+  <script>
+/*
+Write a function that computes the difference between the square of the sum of the first n positive integers and the sum of the squares of the first n positive integers.
+
+Examples:
+*/
+function sumSquareDifference(num) {
+  var array = range(1, num);
+  return squareOfSum(array) - sumOfSquares(array);
+}
+
+function range(start, count) {
+  return Array.apply(0, Array(count))
+    .map(function (element, index) {
+      return index + start;
+  });
+}
+
+function squareOfSum(array) {
+  return array.reduce(sum) ** 2;
+}
+
+function sum(acc, value) {
+  return acc + value;
+}
+
+function sumOfSquares(array) {
+  return array.map(square).reduce(sum);
+}
+
+function square(item) {
+  return item ** 2;
+}
+
+console.log(sumSquareDifference(3));      // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+console.log(sumSquareDifference(10));     // 2640
+console.log(sumSquareDifference(1));      // 0
+console.log(sumSquareDifference(100));    // 25164150
+  </script>
+</html>

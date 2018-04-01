@@ -1,0 +1,41 @@
+<html>
+  <script>
+/*
+Write a function that takes an array as an argument and sorts that array using the bubble sort algorithm described above. The sorting should be done "in-place" — that is, the function should mutate the array. You may assume that the array contains at least two elements.
+
+Examples:
+*/
+
+function bubbleSort(array) {
+  var shifted = true;
+  var temp;
+  var i;
+
+  while (shifted) {
+    shifted = false;
+
+    for (i = 0; i < array.length - 1; i += 1) {
+      if (array[i] > array[i + 1]) {
+        shifted = true;
+        temp = array[i]
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+      }
+    }
+  }
+
+  return array;
+}
+var array = [5, 3];
+bubbleSort(array);
+console.log(array);    // [3, 5]
+
+var array = [6, 2, 7, 1, 4];
+bubbleSort(array);
+console.log(array);    // [1, 2, 4, 6, 7]
+
+var array = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+bubbleSort(array);
+console.log(array);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+  </script>
+</html>
