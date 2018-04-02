@@ -1,0 +1,40 @@
+<html>
+  <script>
+  function rotate90(matrix) {
+    var result = [...Array(matrix[0].length).keys()].map(emptyArray);
+    var newRow;
+
+    matrix.forEach(function (array, oldRow) {
+      array.forEach(function(element, oldColumn) {
+        newRow = matrix.length - 1 - oldRow;
+        result[oldColumn][newRow] = matrix[oldRow][oldColumn];
+      })
+    })
+
+    return result;
+  }
+
+  function emptyArray() {
+    return [];
+  }
+
+var matrix1 = [
+  [1, 5, 8],
+  [4, 7, 2],
+  [3, 9, 6],
+];
+
+var matrix2 = [
+  [3, 7, 4, 2],
+  [5, 1, 0, 8],
+];
+
+console.log(rotate90(matrix1));
+console.log(rotate90(matrix2));
+console.log(rotate90(rotate90(rotate90(rotate90(matrix2)))));
+
+      // [[3, 4, 1], [9, 7, 5], [6, 2, 8]]
+      // [[5, 3], [1, 7], [0, 4], [8, 2]]
+      // `matrix2` --> [[3, 7, 4, 2], [5, 1, 0, 8]]
+  </script>
+</html>

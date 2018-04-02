@@ -1,0 +1,39 @@
+<html>
+  <script>
+
+var yellowPages = ['Apple Store', 'Bags Galore', 'Bike Store', 'Donuts R Us', 'Eat a Lot', 'Good Food', 'Pasta Place', 'Pizzeria', 'Ruby Lounge', 'Zooper'];
+
+function binarySearch(data, search) {
+  var index;
+  var counter = 0;
+  var tempData = data.slice();
+
+  while (tempData.length > 0) {
+    index = parseInt(tempData.length / 2, 10);
+
+    if (search < tempData[index]) {
+      tempData = tempData.slice(0, index);
+    } else if (search > tempData[index]) {
+      tempData = tempData.slice(index + 1);
+      counter += index + 1;
+    } else if (search === tempData[index]) {
+      return counter + index;
+    }
+  }
+
+  return -1;
+}
+
+
+
+console.log(binarySearch(yellowPages, 'Pizzeria'));                   // 7
+console.log(binarySearch(yellowPages, 'Apple Store'));                // 0
+
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 77));    // -1
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 89));    // 7
+console.log(binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 5));     // 1
+
+console.log(binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Zed'));  // -1
+console.log(binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Tyler'));  // 6
+  </script>
+</html>
