@@ -1,0 +1,61 @@
+<html>
+  <script>
+/*
+Write a function that displays a four-pointed diamond in an nxn grid, where n is an odd integer supplied as an argument to the function. You may assume that the argument will always be an odd integer.
+
+// logs
+*
+
+// logs
+ *
+***
+ *
+
+// logs
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+*/
+// This function actually prints hollow diamonds similar to the ones above:
+function diamond(max) {
+  var strings = new Array(max).join().split(',').map(function (_, index) {
+    return index + 1;
+  }).filter(function (value) {
+    return isOdd(value);
+  }).map(function (stars) {
+    return buildStarString(max, stars);
+  })
+  strings = strings.concat(strings.slice(0, strings.length - 1).reverse())
+
+  strings.forEach(function (string) {
+    console.log(string);
+  })
+}
+
+function buildStarString(max, stars) {
+  var spaces = (max - stars) / 2;
+  var result = ' '.repeat(spaces) + '*';
+
+  if (stars > 1) {
+    result += ' '.repeat(stars - 2) + '*';
+  }
+
+  return result;
+}
+
+function isOdd(num) {
+  return num % 2 === 1;
+}
+
+diamond(1);
+diamond(3);
+diamond(9);
+diamond(11);
+  </script>
+</html>
